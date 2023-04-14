@@ -1,0 +1,32 @@
+government = monarchy
+government_rank = 1
+add_government_reform = feudalism_reform
+technology_group = high_american
+unit_type = high_american
+primary_culture = Gronish
+religion = norse_pagan_reformed
+capital = 2582	#Maliseet
+fixed_capital = 2582	#Maliseet
+national_focus = MIL
+1444.11.11 = {
+	monarch = {
+		name = "Valkyrie"
+		dynasty = "Leijonhufvud"
+		birth_date = 1425.10.5
+		female = yes
+		adm = 2
+		dip = 6
+		mil = 4
+		leader = {	name = "Valkyrie"   type = general	fire = 2	shock =5	manuever = 6	siege = 1 }
+	}
+	heir = {
+		name = "Bjornson"
+		dynasty = "Leijonhufvud"
+		birth_date = 1443.1.1
+		death_date = 1500.1.13
+		adm = 3
+		dip = 5
+		mil = 3
+	}
+
+}

@@ -1,0 +1,33 @@
+government = monarchy
+government_rank = 1
+add_government_reform = feudalism_reform
+technology_group = high_american
+unit_type = high_american
+primary_culture = Vinlandian
+add_accepted_culture = innu
+religion = norse_pagan_reformed
+capital = 981	#Taqamkuk
+fixed_capital = 981	#Taqamkuk
+1435.2.2 = {
+	monarch = {
+		name = "Björn"
+		dynasty = "Leijonhufvud"
+		birth_date = 1419.10.5
+		adm = 4
+		dip = 5
+		mil = 5
+		leader = {	name = "Björn"   type = general	fire = 5	shock =6	manuever = 2	siege = 0 }
+	}
+}
+1435.2.2 = {
+	queen = {
+		name = "Brynja"
+		dynasty = "Northrisson"
+		birth_date = 14121.11.12
+		death_date = 1480.3.2
+		female = yes
+		adm = 4
+		dip = 4
+		mil = 4
+		}
+}

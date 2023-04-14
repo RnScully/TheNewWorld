@@ -1,0 +1,25 @@
+government = republic
+mercantilism = 20
+government_rank = 1
+add_government_reform = merchants_reform
+technology_group = high_american
+unit_type = high_american
+primary_culture = Gronish
+religion = norse_pagan_reformed
+capital = 1105	#Vestbygden
+fixed_capital = 1105	#Vestbygden
+
+national_focus = DIP
+
+
+1440.12.1 = {
+	monarch = {
+		name = "Luka"
+		dynasty = "Läma"
+		birth_date = 1428.10.5
+		adm = 4
+		dip = 5
+		mil = 3
+		leader = {	name = "Luka"   type = general	fire = 2	shock =3	manuever = 2	siege = 0 }
+	}
+}

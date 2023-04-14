@@ -1,0 +1,17 @@
+#1105 - Vestbygden
+
+add_core = GRO
+owner = GRO
+controller = GRO
+culture = Gronish
+religion = norse_pagan_reformed
+capital = "Vestbygden"
+is_city = yes
+trade_goods = ivory
+hre = no
+base_tax = 3
+base_production = 6
+base_manpower = 2
+
+discovered_by = high_american
+

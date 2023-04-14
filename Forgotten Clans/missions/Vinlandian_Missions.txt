@@ -1,0 +1,1420 @@
+Odin_missions_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = VIN
+	}
+	has_country_shield = yes
+
+	Way_of_the_Odin = {
+		icon = mission_way_odin
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			owned_by =ODI
+		}
+
+		trigger = {
+			OR = {
+				ODI = {
+							has_opinion = {
+								who = ROOT
+								value = 100
+							}
+						}
+				AND = {
+					ODI = {
+								is_rival = ROOT
+					}
+
+					ROOT = {
+								is_rival = ODI
+					}
+
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "odin_way"
+				duration = 5475 #15 years
+			}
+		}
+	}
+	prepare_for_war = {
+		icon = mission_build_up_to_force_limit
+		required_missions = { Way_of_the_Odin }
+
+
+		trigger = {
+			army_size_percentage = 1
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "war_preparation"
+				duration = 3650 #10 years
+				}
+
+			lower_acadia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+
+		}
+	}
+
+		conquer_heretics = {
+		icon = mission_conquer_5_states
+		required_missions = { prepare_for_war }
+
+		provinces_to_highlight = {
+			area = lower_acadia_area
+		}
+
+	trigger = {
+			AND = {
+				OR{
+					4891 = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+
+					982 = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+				OR{
+					2569 = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					2568 = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					984 = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+
+	effect = {
+			upper_acadia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+			st_john_valley_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+			notre_dame_mountains_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+
+	}
+
+	spread_religion = {
+		icon = mission_religious
+		required_missions = { conquer_heretics }
+
+
+		trigger = {
+			religious_unity = 1.0
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 20
+			}
+		}
+		effect = {
+			add_prestige = 10
+			add_mil_power = 50
+			ROOT {
+				add_casus_belli = {
+				target = ODI
+				type = cb_vassalize_mission
+				months = 250
+				}
+			}
+		}
+	}
+	restore_order = {
+		icon = mission_teutonic_knights
+		required_missions = { spread_religion }
+
+		provinces_to_highlight = {
+			owned_by =ODI
+		}
+
+		trigger = {
+			OR = {
+				ODI = {
+					exists = yes
+					is_subject_of = ROOT
+				}
+				AND = {
+					controls = 2578
+					NOT = {
+						exists = ODI
+					}
+				}
+
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "odin_knights"
+				duration = 14600 #40 years
+				}
+			add_prestige = 15
+			add_army_tradition = 10
+			capital_scope = {
+					add_base_manpower = 2
+					}
+			ODI = {
+				add_historical_friend = ROOT
+				add_opinion = {
+					who = ROOT
+					modifier = united_clans
+				}
+			}
+			ROOT = {
+				add_historical_friend = ODI
+				add_opinion = {
+					who = ODI
+					modifier = united_clans
+				}
+			}
+		}
+	}
+}
+
+#####################################################################
+
+fish_missions_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = VIN
+	}
+	has_country_shield = yes
+
+	Way_of_the_Fish = {
+		icon = mission_way_fish
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			owned_by =ALV
+		}
+
+		trigger = {
+			OR = {
+				ALV = {
+							has_opinion = {
+								who = ROOT
+								value = 100
+							}
+				}
+				AND = {
+					ALV = {
+								is_rival = ROOT
+					}
+
+					ROOT = {
+								is_rival = ALV
+					}
+
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "loki_way"
+				duration = 3650 #10 years
+			}
+		}
+
+	}
+
+	information_gathering = {
+		icon = mission_pf_map_table
+		required_missions = { Way_of_the_Fish }
+		provinces_to_highlight = {
+			owned_by =ALV
+		}
+
+		trigger = {
+			has_spy_network_in = {
+				who = ALV
+				value = 75
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "intelligence_experience"
+				duration = 5475 #15 years
+			}
+		}
+
+	}
+
+	improving_reputation = {
+		icon = mission_alliances
+		required_missions = { information_gathering }
+		provinces_to_highlight = {
+			owned_by =ALV
+		}
+
+		trigger = {
+			OR = {
+					AND = {
+						ROOT = {
+								alliance_with = ALV
+						}
+						ALV = {
+							has_opinion = {
+								who = ROOT
+								value = 200
+							}
+						}
+					}
+
+
+					num_of_allies = 2
+					calc_true_if = {
+						all_ally = {
+							has_opinion = {
+							who = ROOT
+							value = 150
+							}
+						}
+					amount = 2
+					}
+
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "intelligence_experience"
+				duration = 5475 #15 years
+			}
+		}
+
+	}
+
+	innu_clans = {
+		icon = mission_noble_council
+		required_missions = { improving_reputation }
+		provinces_to_highlight = {
+			owned_by =ALV
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				culutre = innu
+				value = 5
+			}
+			accepted_culture = innu
+		}
+		effect = {
+			add_country_modifier = {
+				name = "innu_clans_assymilation"
+				duration = 1825 #5 years
+			}
+			add_prestige = 10
+			add_dip_power = 50
+			ROOT {
+				add_casus_belli = {
+				target = VIN
+				type = cb_vassalize_mission
+				months = 250
+				}
+			}
+		}
+
+	}
+
+	family_reunion = {
+		icon = mission_ottoman_harem
+		required_missions = { innu_clans }
+
+		provinces_to_highlight = {
+			owned_by =ALV
+		}
+
+		trigger = {
+			OR = {
+				ALV = {
+					exists = yes
+					is_subject_of = ROOT
+				}
+				AND = {
+					controls = 2578
+					NOT = {
+						exists = ALV
+					}
+				}
+
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "family_reunion"
+				duration = 14600 #40 years
+				}
+			add_prestige = 10
+			add_legitimacy = 20
+			define_consort = {
+				name = "Frigga"
+				dynasty = ROOT
+				country_of_origin = ALV
+				religion = norse_pagan_reformed
+				culture = Gronish
+				adm = 5
+				dip = 6
+				il = 4
+				female = yes
+
+			}
+			capital_scope = {
+					add_base_tax = 2
+					}
+			ALV = {
+				add_historical_friend = ROOT
+				add_opinion = {
+					who = ROOT
+					modifier = united_clans
+				}
+			}
+			ROOT = {
+				add_historical_friend = ALV
+				add_opinion = {
+					who = ALV
+					modifier = united_clans
+				}
+			}
+		}
+	}
+
+}
+
+#####################################################################
+
+horn_missions_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = VIN
+	}
+	has_country_shield = yes
+
+	Way_of_the_Horn = {
+		icon = mission_way_horn
+		required_missions = {  } #None
+
+		provinces_to_highlight = {
+			owned_by =GRO
+		}
+
+		trigger = {
+			OR = {
+				GRO = {
+							has_opinion = {
+								who = ROOT
+								value = 100
+							}
+				}
+				AND = {
+					GRO = {
+								is_rival = ROOT
+					}
+
+					ROOT = {
+								is_rival = GRO
+					}
+
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "gronhornian_technique"
+				duration = 5475 #15 years
+			}
+		}
+
+	}
+
+	settlement_expansion = {
+		icon = mission_colonial
+		required_missions = { Way_of_the_Horn } #None
+		provinces_to_highlight = {
+			area = newfoundland_area
+		}
+
+		trigger = {
+			development_in_provinces = {
+				value = 50
+				area = newfoundland_area
+			}
+
+
+		}
+		effect = {
+			add_country_modifier = {
+				name = "homeland_development"
+				duration = 3650 #10 years
+			}
+		}
+
+	}
+
+	northern_trade = {
+		icon = mission_establish_high_seas_navy
+		required_missions = { settlement_expansion } #None
+
+
+		trigger = {
+			home_trade_node = {
+				is_strongest_trade_power = ROOT
+				}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "travel_trade"
+				duration = 5475 #15 years
+			}
+		}
+
+	}
+
+	wealth_of_trade = {
+		icon = mission_war_chest
+		required_missions = { northern_trade } #None
+		provinces_to_highlight = {
+			area = newfoundland_area
+		}
+
+		trigger = {
+			AND = {
+				navy_size_percentage = 1.00
+				num_of_light_ship = 12
+				981 = {
+				is_prosperous = yes
+				}
+				home_trade_node = {
+					trade_share = {
+						country = ROOT
+						share = 50
+					}
+				}
+			}
+
+
+		}
+
+		effect = {
+			add_treasury = 250
+			add_adm_power = 50
+			capital_scope = {
+				center_of_trade = 1
+			}
+			ROOT {
+				add_casus_belli = {
+				target = GRO
+				type = cb_vassalize_mission
+				months = 250
+				}
+			}
+		}
+
+	}
+
+	distant_brothers = {
+		icon = mission_dominate_home_trade_node
+		required_missions = { wealth_of_trade }
+
+		provinces_to_highlight = {
+			owned_by =GRO
+		}
+
+		trigger = {
+			OR = {
+				GRO = {
+					exists = yes
+					is_subject_of = ROOT
+				}
+				AND = {
+					controls = 1105
+					NOT = {
+						exists = GRO
+					}
+				}
+
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "gronhornian_expertise"
+				duration = 14600 #40 years
+				}
+			add_prestige = 10
+			add_mercantilism = 10
+			capital_scope = {
+					add_base_production = 2
+					}
+			GRO = {
+				add_historical_friend = ROOT
+				add_opinion = {
+					who = ROOT
+					modifier = united_clans
+				}
+			}
+			ROOT = {
+				add_historical_friend = GRO
+				add_opinion = {
+					who = GRO
+					modifier = united_clans
+				}
+			}
+		}
+	}
+
+}
+
+
+#####################################################################
+
+Misc_missions_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = VIN
+	}
+	has_country_shield = yes
+
+	unite_clans = {
+		icon = mission_assemble_an_army
+		position = 6
+		required_missions = {
+			distant_brothers
+			restore_order
+			family_reunion
+		}
+
+
+		effect = {
+			add_country_modifier = {
+				name = "clans_united"
+			}
+			subarctic_islands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+
+}
+
+#####################################################################
+
+Invade_Europe_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = VIN
+			tag = ODI
+			tag = GRO
+			tag = ALV
+		}
+	}
+	has_country_shield = yes
+
+	European_foothold = {
+		icon = mission_sea_battles
+		position = 7
+		required_missions = {
+
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 370
+				province_id = 371
+			}
+		}
+
+		trigger = {
+			370 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			371 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			highlands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lowlands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kingdom_of_the_isles_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ulster_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			connacht_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			leinster_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			munster_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			western_norway = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			northern_norway = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			eastern_norway = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	invade_isles = {
+		icon = mission_rb_into_england
+		position = 8
+		required_missions = { European_foothold }
+
+		provinces_to_highlight = {
+			OR = {
+				area = highlands_area
+				area = lowlands_area
+				area = kingdom_of_the_isles_area
+			}
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 6
+				OR = {
+					area = highlands_area
+					area = lowlands_area
+					area = kingdom_of_the_isles_area
+				}
+			}
+
+
+		}
+
+		effect = {
+			add_yearly_manpower = 0.5
+			scottish_marches_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			yorkshire_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			east_midlands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			east_anglia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	Reconquista = {
+		icon = mission_crusade_for_varna
+		position = 9
+		required_missions = { invade_isles }
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 246
+				province_id = 4368
+				province_id = 4367
+				province_id = 243
+				province_id = 4370
+			}
+		}
+
+		trigger = {
+			246 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4368 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4367 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			243 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4370 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			home_counties_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			wessex_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_midlands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			wales_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+		}
+	}
+
+	pillage_london = {
+		icon = mission_impaled_soldies
+		position = 10
+		required_missions = { Reconquista }
+
+		provinces_to_highlight = {
+			province_id = 236
+		}
+
+		trigger = {
+
+			236 = {
+				is_looted = yes
+				devastation = 50
+				controlled_by = ROOT
+			}
+
+
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "london_massacre"
+				duration = 5475 #15 years
+			}
+			236 = {
+				change_religion = norse_pagan_reformed
+				add_devastation = 25
+			}
+			add_treasury = 1200
+			add_mil_power = 100
+			236 = {
+				Owner = {
+					kill_ruler = yes
+				}
+			}
+		}
+	}
+
+	king_of_the_norh = {
+		icon = mission_monarch_in_throne_room
+		position = 11
+		required_missions = {
+
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				region = scandinavia_region
+				region = british_isles_region
+			}
+		}
+
+		trigger = {
+
+			scandinavia_region = {
+				religion = norse_pagan_reformed
+				country_or_non_sovereign_subject_holds = ROOT
+				type = all
+			}
+			british_isles_region = {
+				religion = norse_pagan_reformed
+				country_or_non_sovereign_subject_holds = ROOT
+				type = all
+			}
+		}
+
+		effect = {
+			add_prestige = 100
+			add_legitimacy = 100
+			add_republican_tradition = 100
+			add_devotion = 100
+			add_adm_power = 75
+			add_dip_power = 75
+			add_mil_power = 75
+
+		}
+	}
+
+}
+
+###
+Invade_Europe_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = VIN
+			tag = ODI
+			tag = GRO
+			tag = ALV
+		}
+	}
+	has_country_shield = yes
+
+
+
+	ireland_invasion = {
+		icon = mission_invade_ireland
+		position = 8
+		required_missions = { European_foothold }
+
+		provinces_to_highlight = {
+			OR = {
+				area = munster_area
+				area = connacht_area
+				area = ulster_area
+				area = leinster_area
+			}
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					area = munster_area
+					area = connacht_area
+					area = ulster_area
+					area = leinster_area
+				}
+			}
+		}
+
+		effect = {
+			#War tax cost i taxy noramalne
+			add_country_modifier = {
+				name = "war_enthusiasm"
+				duration = 5475 #15 years
+			}
+			brittany_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	mainland_conquest = {
+		icon = mission_mainland_conquest
+		position = 9
+		required_missions = { ireland_invasion }
+
+		provinces_to_highlight = {
+			area = brittany_area
+		}
+
+		trigger = {
+
+			num_of_owned_provinces_with = {
+				value = 3
+				area = brittany_area
+			}
+			170 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			169 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			add_adm_power = 50
+			normandy_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ile_de_france_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			picardy_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+		}
+	}
+	conquer_coast = {
+		icon = mission_coast_conquest
+		position = 10
+		required_missions = { mainland_conquest }
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4385
+				province_id = 168
+				province_id = 167
+				province_id = 89
+				province_id = 87
+			}
+		}
+
+		trigger = {
+			4385 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				}
+			168 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				}
+			167 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				}
+			89 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				}
+			87 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				}
+		}
+
+		effect = {
+			add_dip_power = 50
+			add_country_modifier = {
+				name = "channel_control"
+				duration = 5475 #15 years
+			}
+
+		}
+	}
+
+}
+###
+Invade_Europe_slot_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = VIN
+			tag = ODI
+			tag = GRO
+			tag = ALV
+		}
+	}
+	has_country_shield = yes
+
+		pillage_paris = {
+		icon = mission_steppe_warriors
+		position = 10
+		required_missions = { mainland_conquest }
+
+		provinces_to_highlight = {
+			province_id = 183
+		}
+
+		trigger = {
+
+			183 = {
+				is_looted = yes
+				controlled_by = ROOT
+			}
+
+
+		}
+
+		effect = {
+
+			183 = {
+
+				add_devastation = 25
+			}
+			add_treasury = 1000
+			add_mil_power = 25
+
+		}
+	}
+}
+
+###
+Invade_Europe_slot_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = VIN
+			tag = ODI
+			tag = GRO
+			tag = ALV
+		}
+	}
+	has_country_shield = yes
+
+	land_fo_the_ancestors = {
+		icon = mission_norway_conqest
+		position = 8
+		required_missions = { European_foothold }
+
+		provinces_to_highlight = {
+			OR = {
+				area = eastern_norway
+				area = northern_norway
+				area = western_norway
+			}
+		}
+
+		trigger = {
+			17 = {
+			country_or_non_sovereign_subject_holds = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 8
+				OR = {
+					area = eastern_norway
+					area = northern_norway
+					area = western_norway
+				}
+			}
+
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "a_new_spirit"
+				duration = 7300 #20 years
+			}
+			jutland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			denmark_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			vastra_gotaland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			svealand_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ostra_svealand_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			norrland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	reclaim_denmark = {
+		icon = mission_denmark_conquest
+		position = 10
+		required_missions = { land_fo_the_ancestors }
+
+		provinces_to_highlight = {
+			OR = {
+				area = jutland_area
+				area = denmark_area
+			}
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					area = jutland_area
+					area = denmark_area
+				}
+			}
+			12 = {
+			country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			add_prestige = 5
+			add_treasury = 100
+			add_mil_power = 25
+			12 = {
+				change_religion = norse_pagan_reformed
+				add_devastation = 25
+			}
+			skaneland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			gotaland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+		}
+	}
+}
+###
+Invade_Europe_slot_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = VIN
+			tag = ODI
+			tag = GRO
+			tag = ALV
+		}
+	}
+	has_country_shield = yes
+
+	reclaim_sweden = {
+		icon = mission_sweden_conquest
+		position = 9
+		required_missions = { land_fo_the_ancestors }
+
+		provinces_to_highlight = {
+			OR = {
+				area = norrland_area
+				area = svealand_area
+				area = ostra_svealand_area
+			}
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					area = norrland_area
+					area = svealand_area
+					area = ostra_svealand_area
+				}
+			}
+			1 = {
+			country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			add_prestige = 5
+			add_treasury = 100
+			add_mil_power = 25
+			1 = {
+				change_religion = norse_pagan_reformed
+				add_devastation = 25
+			}
+			finland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			bothnia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			laponia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	reclaim_finland = {
+		icon = mission_finland_conquest
+		position = 10
+		required_missions = { reclaim_sweden }
+
+		provinces_to_highlight = {
+			OR = {
+				area = finland_area
+				area = bothnia
+			}
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					area = finland_area
+					area = bothnia
+				}
+			}
+			27 = {
+			country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			add_prestige = 5
+			add_treasury = 100
+			add_dip_power = 25
+			28 = {
+				change_religion = norse_pagan_reformed
+				add_devastation = 25
+			}
+
+		}
+	}
+}

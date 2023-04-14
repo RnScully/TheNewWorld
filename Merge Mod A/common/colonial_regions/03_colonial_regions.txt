@@ -1,0 +1,40 @@
+# Used for RNW
+colonial_placeholder_41 = {
+	color = { 221 118 55 }
+}
+
+colonial_placeholder_42 = {
+	color = { 162 158 193 }
+}
+
+colonial_placeholder_43 = {
+	color = { 237 148 136 }
+}
+
+colonial_placeholder_44 = {
+	color = { 30 117 152 }
+}
+
+colonial_placeholder_45 = {
+	color = { 238 178 211 }
+}
+
+colonial_placeholder_46 = {
+	color = { 23 91 184 }
+}
+
+colonial_placeholder_47 = {
+	color = { 74 64 213 }
+}
+
+colonial_placeholder_48 = {
+	color = { 181 51 170 }
+}
+
+colonial_placeholder_49 = {
+	color = { 123 33 78 }
+}
+
+colonial_placeholder_50 = {
+	color = { 105 135 193 }
+}

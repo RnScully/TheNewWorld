@@ -1,0 +1,23 @@
+government = theocracy
+government_rank = 1
+add_government_reform = monastic_order_reform
+technology_group = high_american
+unit_type = high_american
+primary_culture = Vinlandian
+religion = norse_pagan_reformed
+capital = 981	#Taqamkuk
+fixed_capital = 981	#Taqamkuk
+
+national_focus = MIL
+
+1436.1.1 = {
+	monarch = {
+		name = "Olaf"
+		dynasty = "Jägerhorn"
+		birth_date = 1418.10.5
+		adm = 3
+		dip = 2
+		mil = 6
+		leader = {	name = "Olaf"   type = general	fire = 4	shock = 4	manuever = 4	siege = 3 }
+	}
+}

@@ -1,0 +1,22 @@
+# No previous file for Anticosti
+
+
+add_core = ODI
+owner = ODI
+controller = ODI
+culture = Vinlandian
+religion = norse_pagan_reformed
+capital = "Anticosti"
+is_city = yes
+trade_goods = iron
+hre = no
+base_tax = 3
+base_production = 5
+base_manpower = 4
+
+
+discovered_by = north_american
+discovered_by = high_american
+
+
+1707.5.12 = { discovered_by = GBR }

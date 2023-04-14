@@ -1,0 +1,610 @@
+
+Odi_missions_slot_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ODI
+	}
+	has_country_shield = yes
+
+	control_land = {
+		icon = mission_italian_condottiere
+		position = 1
+		required_missions = {
+
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				owned_by =VIN
+				owned_by =ALV
+				owned_by =GRO
+			}
+		}
+
+		trigger = {
+			AND = {
+				land_forcelimit = VIN
+				land_forcelimit = ALV
+				land_forcelimit = GRO
+				army_size	 = VIN
+				army_size	 = ALV
+				army_size	 = GRO
+			}
+		}
+
+		effect = {
+		add_country_modifier = {
+			name = "land_supremacy"
+			duration = 3650 #10 years
+		}
+		add_yearly_manpower = 0.25
+		}
+	}
+
+	army_experience = {
+		icon = mission_non-western_cavalry_raid
+		position = 2
+		required_missions = {
+			control_land
+		}
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+			army_tradition = 30
+		}
+
+		effect = {
+			add_mil_power = 50
+			add_army_tradition = 10
+		}
+	}
+
+	unite_homeland = {
+		icon = mission_unite_home_region
+		position = 3
+		required_missions = {
+			army_experience
+			naval_experience
+		}
+
+		provinces_to_highlight = {
+			region_for_scope_province = {
+				is_capital_of = ROOT
+				}
+			NOT = { owned_by = ROOT }
+		}
+
+		trigger = {
+			capital_scope = {
+				region_for_scope_province = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+		}
+
+		effect = {
+			add_adm_power = 100
+			add_prestige = 20
+		}
+	}
+
+	spread_norse_faith = {
+		icon = mission_religious
+		position = 5
+		required_missions = {
+			southern_expansion
+		}
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+		custom_trigger_tooltip = {
+				tooltip = miss_spread_norse_faith
+				calc_true_if = {
+					all_province = {
+						religion = norse_pagan_reformed
+					}
+				amount = 75
+				}
+				}
+			}
+
+
+
+		effect = {
+			add_country_modifier = {
+				name = "nordic_faith_spread"
+				duration = 7300 #20 years
+				}
+		}
+	}
+
+}
+
+
+#####################################################################
+
+Odi_missions_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ODI
+	}
+	has_country_shield = yes
+
+	control_sea = {
+		icon = mission_galleys_in_port
+		position = 1
+		required_missions = {
+
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				owned_by =VIN
+				owned_by =ALV
+				owned_by =GRO
+			}
+		}
+
+		trigger = {
+			AND = {
+				naval_forcelimit = VIN
+				naval_forcelimit = ALV
+				naval_forcelimit = GRO
+				navy_size = VIN
+				navy_size = ALV
+				navy_size = GRO
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "naval_supremacy"
+				duration = 3650 #10 years
+				}
+			add_yearly_sailors = 0.25
+		}
+	}
+
+	naval_experience = {
+		icon = mission_establish_high_seas_navy
+		position = 2
+		required_missions = {
+			control_sea
+		}
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+			navy_tradition = 30
+		}
+
+		effect = {
+			add_dip_power = 50
+			add_navy_tradition = 10
+		}
+	}
+
+
+
+}
+
+#####################################################################
+
+Odi_missions_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ODI
+	}
+	has_country_shield = yes
+
+	fortify_capital = {
+		icon = mission_conquer_50_development
+		position = 1
+		required_missions = {
+
+		}
+
+		provinces_to_highlight = {
+			province_id = 2578
+		}
+
+		trigger = {
+			capital_scope = {
+				fort_level = 3
+			}
+		}
+
+		effect = {
+			capital_scope = {
+				add_base_manpower = 2
+			}
+			add_country_modifier = {
+				name = "new_fortifications"
+				duration = 5475 #15 years
+			}
+		}
+	}
+
+	assemble_holy_legion = {
+		icon = mission_teutonic_knights
+		position = 2
+		required_missions = {
+			fortify_capital
+		}
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+			army_size_percentage = 1
+		}
+
+		effect = {
+			add_country_modifier = {
+			name = "war_preparation"
+			duration = 3650 #10 years
+			}
+		}
+
+	}
+
+	acquire_new_land = {
+		icon = mission_iroquois_warriors
+		position = 3
+		required_missions = {
+			assemble_holy_legion
+		}
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+			value = 15
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+			name = "new_lands_acquisition"
+			duration = 3650 #10 years
+			}
+			create_conquistador = { tradition = 75 }
+			create_explorer = { tradition = 50 }
+			eastern_maine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			maine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+
+	}
+
+	southern_expansion = {
+		icon = mission_iberian_conquistador
+		position = 3
+		required_missions = {
+			acquire_new_land
+		}
+
+		provinces_to_highlight = {
+			region = northeast_america_region
+		}
+
+		trigger = {
+		num_of_owned_provinces_with = {
+		region = northeast_america_region
+		value = 5
+		}
+		}
+
+		effect = {
+			create_conquistador = { tradition = 50 }
+			great_woods_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+			}
+			south_iroquoisia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					}
+				add_permanent_claim = ROOT
+			}
+			massachusetts_bay_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+		}
+	}
+
+	local_hegemony = {
+		icon = mission_empire
+		position = 6
+		required_missions = {
+			spread_norse_faith
+			convert_tribes
+		}
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+			navy_size = 100
+			army_size = 50
+			home_trade_node = {
+				is_strongest_trade_power = ROOT
+				}
+		}
+
+		effect = {
+		add_country_modifier = {
+			name = "eastern_invasion_enthusiasm"
+			duration = 14600 #40 years
+		}
+		add_army_tradition = 10
+		add_prestige = 20
+		add_yearly_manpower = 0.33
+		subarctic_islands_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		}
+	}
+
+
+}
+
+#####################################################################
+
+Odi_missions_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ODI
+	}
+	has_country_shield = yes
+
+	convert_new_land = {
+		icon = mission_hands_praying
+		position = 1
+		required_missions = {
+
+		}
+
+		provinces_to_highlight = {
+			province_id = 983
+		}
+
+		trigger = {
+			370 = {
+				religion = norse_pagan_reformed
+				owned_by = ODI
+			}
+		}
+
+		effect = {
+			370 = {
+				change_culture = Vinlandian
+				devastation = 10
+			}
+			MIK = {
+				add_opinion = {
+					who = ODI
+					modifier = murdered_tribe
+				}
+			}
+			lower_acadia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			upper_acadia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+		}
+	}
+
+	conquer_lower_acadia = {
+		icon = mission_cossack_cavalry
+		position = 2
+		required_missions = {
+			convert_new_land
+		}
+
+		provinces_to_highlight = {
+			area = lower_acadia_area
+		}
+
+		trigger = {
+			lower_acadia_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+				type = all
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "holy_crusade"
+				duration = 3650 #10 years
+			}
+		}
+	}
+	crush_mikmaq_heretics = {
+		icon = mission_impaled_soldies
+		position = 2
+		required_missions = {
+			conquer_lower_acadia
+			conquer_upper_acadia
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = lower_acadia_area
+				area = upper_acadia_area
+			}
+
+		}
+
+		trigger = {
+			lower_acadia_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+				type = all
+			}
+			upper_acadia_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+				type = all
+			}
+			religious_unity = 1
+			MIK = {
+				exists = no
+			}
+		}
+
+		effect = {
+			add_prestige = 25
+			add_devotion = 25
+			tolerance_own = 1
+			st_john_valley_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+}
+
+
+
+#####################################################################
+
+Odi_missions_slot_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ODI
+	}
+	has_country_shield = yes
+
+	conquer_upper_acadia = {
+		icon = mission_landsknecht_soldier
+		position = 2
+		required_missions = {
+			convert_new_land
+		}
+
+		provinces_to_highlight = {
+			area = upper_acadia_area
+		}
+
+		trigger = {
+			upper_acadia_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+				type = all
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "convert_new_land"
+				duration = 3650 #10 years
+			}
+		}
+	}
+
+	convert_tribes = {
+		icon = mission_have_two_subjects
+		position = 5
+		required_missions = {
+			southern_expansion
+		}
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+		custom_trigger_tooltip = {
+			tooltip = miss_convert_tribes
+			calc_true_if = {
+				all_country = {
+					religion  = norse_pagan_reformed
+				}
+				amount = 10
+			}
+		}
+
+		}
+
+		effect = {
+			add_devotion = 40
+			add_prestige = 10
+			add_dip_power = 50
+			all_country = {
+				limit = {
+					religion = norse_pagan_reformed
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = odin_preachers
+				}
+			}
+		}
+	}
+
+}

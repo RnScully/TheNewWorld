@@ -1,0 +1,851 @@
+ALV_missions_slot_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ALV
+	}
+	has_country_shield = yes
+
+	Elder_council = {
+		icon = mission_unite_the_princes
+		position = 3
+		required_missions = {
+			Lesser_clans_spread
+		}
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+			AND = {
+				employed_advisor = {
+					category = ADM
+					culture = ROOT
+				}
+				employed_advisor = {
+					category = DIP
+					culture = ROOT
+				}
+				employed_advisor = {
+					category = MIL
+					culture = ROOT
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "diverse_council"
+				duration = 3650 #10 years
+			}
+		}
+
+	}
+
+	}
+#######################################
+ALV_missions_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ALV
+	}
+	has_country_shield = yes
+
+
+	Form_lesser_clans = {
+		icon = mission_ottoman_harem
+		position = 1
+		required_missions = {
+
+		}
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+		num_accepted_cultures = 4
+		}
+
+		effect = {
+			add_dip_power = 50
+			add_country_modifier = {
+				name = "righteous_ruler"
+				duration = 3650 #10 years
+			}
+		}
+
+	}
+
+	Lesser_clans_spread = {
+		icon = mission_settlers_north_america
+		position = 2
+		required_missions = {
+			Form_lesser_clans
+		}
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 20
+				has_owner_accepted_culture = yes
+				NOT = { culture = root }
+				is_overseas = no
+			}
+		}
+
+		effect = {
+			add_legitimacy = 10
+			add_country_modifier = {
+				name = "lesser_clans_support"
+				duration = 3650 #10 years
+			}
+		}
+
+	}
+
+	strengthening_our_position = {
+		icon = mission_conquer_50_development
+		position = 3
+		required_missions = {
+			Lesser_clans_spread
+		}
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+		development_in_provinces = {
+			value = 200
+			culture = ROOT
+		}
+		}
+
+		effect = {
+			add_treasury = 100
+			add_country_modifier = {
+				name = "gronish_gratitude"
+				uration = 5475 #15 years
+			}
+		}
+
+	}
+
+	conquer_upper_coasts= {
+ 	icon = mission_landsknecht_soldier
+ 	position = 4
+ 	required_missions = {
+ 		move_further_into_the_land
+ 	}
+
+ 	provinces_to_highlight = {
+		OR = {
+		area = upper_ontario_area
+		area = lake_superior_area
+		area = wisconsin_area
+		province_id = 4903
+		}
+ 	}
+
+ 	trigger = {
+		AND = {
+		upper_ontario_area = {
+		country_or_non_sovereign_subject_holds = ROOT
+		type = all
+		}
+		lake_superior_area = {
+		country_or_non_sovereign_subject_holds = ROOT
+		type = all
+		}
+		wisconsin_area = {
+		country_or_non_sovereign_subject_holds = ROOT
+		type = all
+		}
+		4903 = {
+		country_or_non_sovereign_subject_holds = ROOT
+		}
+
+		}
+
+ 	}
+
+ 	effect = {
+		add_treasury = 100
+		add_country_modifier = {
+			name = "create_new_routes"
+			duration = 7300 #20 years
+		}
+ 	}
+
+
+	}
+	}
+#######################################
+ALV_missions_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ALV
+	}
+	has_country_shield = yes
+
+	secure_position = {
+		icon = mission_alliances
+		position = 1
+		required_missions = {
+
+		}
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = building_alliances.tooltip
+				num_of_allies = 2
+				calc_true_if = {
+					all_ally = {
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+						}
+						amount = 2
+						}
+			}
+		}
+
+		effect = {
+			994 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+			add_permanent_claim = ROOT
+			}
+
+			2583 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+			add_permanent_claim = ROOT
+			}
+
+			2577 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+			add_permanent_claim = ROOT
+			}
+
+			986 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+			add_permanent_claim = ROOT
+			}
+
+		}
+
+	}
+
+	 control_njord_valley= {
+		icon = mission_invade_island
+		position = 2
+		required_missions = {
+			secure_position
+		}
+
+		provinces_to_highlight = {
+			OR = {
+			province_id = 986
+			province_id = 2577
+			province_id = 2583
+			province_id = 994
+			}
+		}
+
+		trigger = {
+			AND = {
+					986 = {
+					country_or_non_sovereign_subject_holds = ROOT
+					}
+					2577 = {
+					country_or_non_sovereign_subject_holds = ROOT
+					}
+					2583 = {
+					country_or_non_sovereign_subject_holds = ROOT
+					}
+					994 = {
+					country_or_non_sovereign_subject_holds = ROOT
+					}
+			}
+		}
+
+		effect = {
+			2582 = {
+			limit = {
+				NOT = { has_building = grand_shipyard }
+				NOT = { has_building = shipyard }
+			}
+				add_building_construction = {
+					building = shipyard
+					speed = 1
+					cost = 0
+				}
+			}
+			995 = {
+			limit = {
+				NOT = { has_building = grand_shipyard }
+				NOT = { has_building = shipyard }
+			}
+				add_building_construction = {
+					building = shipyard
+					speed = 1
+					cost = 0
+				}
+			}
+
+			trois_rivieres_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+			add_permanent_claim = ROOT
+			}
+			lower_canada_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+			add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	move_further_into_the_land= {
+	 icon = mission_rb_unite_the_clans
+	 position = 3
+	 required_missions = {
+			control_njord_valley
+	 }
+
+	 provinces_to_highlight = {
+	 	OR = {
+			area = trois_rivieres_area
+			area = lower_canada_area
+		}
+	 }
+
+	 trigger = {
+	 	trois_rivieres_area = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+	 	}
+	 	lower_canada_area = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+	 	}
+	 }
+
+	 effect = {
+	 	add_country_modifier = {
+		 name = "new_campaign"
+		 duration = 5475 #15 years
+	 	}
+
+		huronia_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		inner_ontario_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		michigan_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+
+		upper_ontario_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		lake_superior_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		wisconsin_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		4903 = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+
+		4892 = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		4912 = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		961 = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		iroquoisia_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		954 = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		946 = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		947 = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		4922 = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		upper_canada_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		942 = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+
+	 }
+ }
+
+ acces_great_lakes= {
+	icon = mission_mayan_conquest
+	position = 4
+	required_missions = {
+		move_further_into_the_land
+	}
+
+	provinces_to_highlight = {
+		OR = {
+		area = huronia_area
+		area = inner_ontario_area
+		area = michigan_area
+		area = upper_canada_area
+		}
+	}
+
+	trigger = {
+		AND = {
+		huronia_area = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+			type = all
+	 	}
+		inner_ontario_area = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+			type = all
+	 	}
+		michigan_area = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+			type = all
+	 	}
+		upper_canada_area = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+			type = all
+	 	}
+		}
+	}
+
+	effect = {
+		add_sailors = 600
+		add_country_modifier = {
+	 	name = "great_lake_grassants"
+	 	duration = 7300 #20 years
+		}
+	}
+	}
+
+	lake_controller = {
+		icon = mission_rb_rein_in_the_highland_clans
+		position = 5
+		required_missions = {
+			acces_great_lakes
+			secure_southern_coast
+			conquer_upper_coasts
+		}
+
+		provinces_to_highlight = {
+			OR = {
+			area = huronia_area
+			area = inner_ontario_area
+			area = michigan_area
+			area = upper_ontario_area
+			area = lake_superior_area
+			area = wisconsin_area
+			province_id = 4903
+			province_id = 4892
+			province_id = 4912
+			province_id = 961
+			area = iroquoisia_area
+			province_id = 954
+			province_id = 946
+			province_id = 947
+			province_id = 4922
+			province_id = 942
+			area = upper_canada_area
+			}
+		}
+
+		trigger = {
+
+		}
+
+		effect = {
+			add_prestige = 40
+			add_stability = 1
+			add_legitimacy = 20
+			add_mil_power = 100
+			add_country_modifier = {
+				name = "lake_controller"
+				duration = 14600 #40 years
+			}
+			subarctic_islands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+				add_permanent_claim = ROOT
+		}
+
+	}
+
+
+}
+}
+#######################################
+ALV_missions_slot_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ALV
+	}
+	has_country_shield = yes
+
+	expand_navy = {
+ 	icon = mission_establish_high_seas_navy
+ 	position = 1
+ 	required_missions = {
+
+ 	}
+
+ 	provinces_to_highlight = {
+
+ 	}
+
+ 	trigger = {
+			navy_size_percentage = 1
+ 	}
+
+ 	effect = {
+		add_country_modifier = {
+			name = "new_armada"
+			duration = 3650 #10 years
+		}
+ 	}
+
+	}
+
+	New_ports = {
+ 	icon = mission_galleys_in_port
+ 	position = 2
+ 	required_missions = {
+		expand_navy
+ 	}
+
+ 	provinces_to_highlight = {
+
+ 	}
+
+ 	trigger = {
+			num_of_total_ports = 20
+ 	}
+
+ 	effect = {
+	add_country_modifier = {
+		name = "new_ports"
+		duration = 7300 #20 years
+ 	}
+
+	}
+
+
+	}
+
+
+	Njord_vessels = {
+ 	icon = mission_aragonese_navy
+ 	position = 3
+ 	required_missions = {
+		New_ports
+ 	}
+
+ 	provinces_to_highlight = {
+
+ 	}
+
+ 	trigger = {
+			num_of_heavy_ship = 20
+ 	}
+
+ 	effect = {
+	add_country_modifier = {
+		name = "njord_vessels"
+		duration = 7300 #20 years
+ 	}
+
+	}
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	secure_southern_coast= {
+ 	icon = mission_iroquois_warriors
+ 	position = 4
+ 	required_missions = {
+ 		move_further_into_the_land
+ 	}
+
+ 	provinces_to_highlight = {
+	OR = {
+	province_id = 4892
+	province_id = 4912
+	province_id = 961
+	area = iroquoisia_area
+	province_id = 954
+	province_id = 946
+	province_id = 947
+	province_id = 4922
+	province_id = 942
+	}
+ 	}
+
+ 	trigger = {
+		AND ={
+		4892 = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+	 	}
+		4912 = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+	 	}
+		961 = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+	 	}
+		iroquoisia_area = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+			type = all
+	 	}
+		954 = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+	 	}
+		946 = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+	 	}
+		947 = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+	 	}
+		4922 = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+	 	}
+		942 = {
+	 		country_or_non_sovereign_subject_holds = ROOT
+	 	}
+		}
+ 	}
+
+ 	effect = {
+		add_yearly_manpower = 0.25
+		add_country_modifier = {
+			name = "fortifity_south"
+			duration = 7300 #20 years
+		}
+ 	}
+
+	}
+	}
+#######################################
+ALV_missions_slot_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ALV
+	}
+	has_country_shield = yes
+
+	control_home_trade = {
+	icon = mission_sponsor_piracy
+	position = 2
+	required_missions = {
+		expand_navy
+	}
+
+	provinces_to_highlight = {
+
+	}
+
+	trigger = {
+		home_trade_node = {
+		is_strongest_trade_power = ROOT
+		}
+	}
+
+	effect = {
+		add_mercantilism = 5
+		add_treasury = 50
+		add_dip_power = 25
+	}
+
+	}
+
+	grand_armada = {
+	icon = mission_launch_a_flagship
+	position = 3
+	required_missions = {
+		control_home_trade
+	}
+
+	provinces_to_highlight = {
+
+	}
+
+	trigger = {
+			navy_tradition = 50
+	}
+
+	effect = {
+	add_navy_tradition = 20
+	2582 = {
+		limit = {
+			NOT = { has_building = grand_shipyard }
+			NOT = { has_building = shipyard }
+		}
+		add_building_construction = {
+			building = grand_shipyard
+			speed = 1
+			cost = 0
+		}
+	}
+	}
+
+	}
+
+
+
+	}
+#######################################

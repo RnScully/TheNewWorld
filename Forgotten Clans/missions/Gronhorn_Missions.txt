@@ -1,0 +1,576 @@
+Gro_missions_slot_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = GRO
+	}
+	has_country_shield = yes
+
+	from_north_to_south = {
+		icon = mission_portuguese_malacca
+		position = 4
+		required_missions = { rediscover_europe }
+
+		provinces_to_highlight = {
+			area = south_atlantic_islands_area
+		}
+
+		trigger = {
+			south_atlantic_islands_area = {
+				owned_by = ROOT
+				is_city = yes
+			}
+			south_atlantic_islands_area = {
+				has_discovered = ROOT
+			}
+
+		}
+		effect = {
+			add_prestige = 10
+			add_adm_power = 50
+			patagonia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			bahia_blanca_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			patagonian_andes = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			southern_chile_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+
+	Southern_foothold = {
+		icon = mission_galleys_in_port
+		position = 5
+		required_missions = { from_north_to_south }
+
+		provinces_to_highlight = {
+			region = la_plata_region
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				region = la_plata_region
+				is_city = yes
+				value = 10
+				}
+
+		}
+		effect = {
+		add_country_modifier = {
+			name = "southern_base"
+			duration = 5475 #15 years
+		}
+			}
+		}
+
+	}
+#######################################
+Gro_missions_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = GRO
+	}
+	has_country_shield = yes
+
+	exploration_fever = {
+		icon = mission_raid_christian_trade
+		position = 1
+		required_missions = {  }
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+			num_of_explorers = 1
+		}
+		effect = {
+		add_country_modifier = {
+			name = "exploration_fever"
+			duration = 3650 #10 years
+		}
+		}
+	}
+
+	 explore_south = {
+		icon = mission_colonize_the_caribbean
+		position = 2
+		required_missions = { exploration_fever }
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+			AND = {
+				mississippi_region = {
+					has_discovered = ROOT
+				}
+				southeast_america_region = {
+					has_discovered = ROOT
+				}
+				carribeans_region = {
+					has_discovered = ROOT
+				}
+			}
+		}
+		effect = {
+			add_navy_tradition = 10
+			add_yearly_sailors = 0.40
+
+			hispaniola_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			dominica_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			south_carolina_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			carolinas_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_florida_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lower_louisiana_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+		}
+	}
+
+	rediscover_europe = {
+	 icon = mission_rb_into_ireland
+	 position = 3
+	 required_missions = { explore_south }
+
+	 provinces_to_highlight = {
+
+	 }
+
+	 trigger = {
+		 AND = {
+			 scandinavia_region = {
+				 has_discovered = ROOT
+			 }
+			 british_isles_region = {
+				 has_discovered = ROOT
+			 }
+		 }
+	 }
+	 effect = {
+		 add_prestige = 10
+		 add_dip_power = 30
+	 }
+ }
+
+ gate_to_the_east = {
+	icon = mission_conquer_timbuktu
+	position = 4
+	required_missions = { rediscover_europe }
+
+	provinces_to_highlight = {
+		province_id = 1177
+	}
+
+	trigger = {
+		1177 = {
+		owned_by = ROOT
+		is_city = yes
+		}
+	}
+	effect = {
+		cape_of_good_hope_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		south_african_plateau_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+	}
+}
+Secure_southern_africa = {
+icon = mission_corsairs_of_the_north_sea
+position = 4
+required_missions = { gate_to_the_east}
+
+provinces_to_highlight = {
+	province_id = 1177
+}
+
+trigger = {
+	AND = {
+		cape_of_good_hope_area = {
+			owned_by = ROOT
+		}
+		1460 = {
+			is_strongest_trade_power = ROOT
+		}
+	}
+}
+effect = {
+	1177 = {
+		add_center_of_trade_level = 1
+	}
+	add_mercantilism = 5
+	add_dip_power = 60
+	add_prestige = 20
+}
+
+	}
+
+	maritime_hegemon = {
+		icon = mission_develop_nevas_port
+		position = 6
+		required_missions = {
+			Southern_foothold
+			Secure_southern_africa
+			overthrow_vinlandians
+		 }
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+			navy_size_percentage = 1
+			navy_tradition = 50
+			trade_income_percentage = 0.40
+		}
+		effect = {
+			add_navy_tradition = 20
+			add_mercantilism = 10
+			add_treasury = 500
+			add_country_modifier = {
+				name = "maritime_hegemon"
+				duration = 14600 #40 years
+			}
+			subarctic_islands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	}
+#######################################
+Gro_missions_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = GRO
+	}
+	has_country_shield = yes
+
+	trading_supremacy = {
+		icon = mission_dominate_home_trade_node
+		position = 1
+		required_missions = { }
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+			home_trade_node = {
+				is_strongest_trade_power = ROOT
+			}
+		}
+		effect = {
+			capital_scope = {
+				center_of_trade = 2
+			}
+		}
+	}
+
+	develop_capital = {
+		icon = mission_early_game_buildings
+		position = 2
+		required_missions = { trading_supremacy }
+
+		provinces_to_highlight = {
+			province_id = 1105
+		}
+
+		trigger = {
+			capital_scope = {
+				development = 20
+			}
+		}
+		effect = {
+			add_treasury = 50
+			capital_scope = {
+				add_institution_embracement = {
+    			which = renaissance
+    			value = 40
+				}
+			}
+		}
+	}
+
+	country_growth = {
+		icon = mission_eastern_european_city
+		position = 3
+		required_missions = { develop_capital }
+
+		provinces_to_highlight = {
+
+		}
+
+		trigger = {
+			grown_by_development = 75
+		}
+		effect = {
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				add_country_modifier = {
+					name = "country_growth"
+					duration = 7300 20 years
+				}
+			}
+		}
+	}
+
+
+
+
+	}
+#######################################
+Gro_missions_slot_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = GRO
+	}
+	has_country_shield = yes
+
+	greenlandian_pact = {
+		icon = mission_alliances
+		position = 1
+		required_missions = { }
+
+		provinces_to_highlight = {
+			owned_by = ALV
+		}
+
+		trigger = {
+			ALV = {
+				has_opinion = {
+					who = ROOT
+					value = 125
+				}
+			}
+		}
+		effect = {
+			ROOT = {
+				create_alliance = ALV
+			}
+			add_country_modifier = {
+				name = "greenlandian_pact"
+				duration = 7300 #20 years
+			}
+			add_spy_network_in = {
+				who = VIN
+				value = 50
+			}
+			ALV = {
+				add_spy_network_in = {
+					who = ODI
+					value = 50
+				}
+			}
+
+		}
+	}
+
+	mobilization = {
+		icon = mission_build_up_to_force_limit
+		position = 3
+		required_missions = { greenlandian_pact }
+
+		provinces_to_highlight = {
+			owned_by = VIN
+		}
+
+		trigger = {
+			AND = {
+				land_forcelimit = VIN
+				army_size	 = VIN
+				naval_forcelimit = VIN
+				navy_size = VIN
+			}
+		}
+		effect = {
+
+			newfoundland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+		}
+	}
+
+	overthrow_vinlandians = {
+		icon = mission_break_the_tatar_yoke
+		position = 5
+		required_missions = { mobilization }
+
+		provinces_to_highlight = {
+			owned_by = VIN
+		}
+
+		trigger = {
+			newfoundland_area = {
+			country_or_non_sovereign_subject_holds = ROOT
+			type = all
+			}
+			VIN = {
+				exists = no
+			}
+		}
+		effect = {
+			add_prestige = 15
+			add_mil_power = 60
+			add_accepted_culture = Vinlandian
+		}
+	}
+
+
+	}
+#######################################
+Gro_missions_slot_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = GRO
+	}
+	has_country_shield = yes
+
+
+	Western_Expedition = {
+		icon = mission_establish_high_seas_navy
+		position = 1
+		required_missions = {  }
+
+		provinces_to_highlight = {
+			province_id = 1000
+		}
+
+		trigger = {
+			treasury = 200
+		}
+		effect = {
+			add_treasury = -200
+			1000 = {
+				create_colony = 100
+				change_culture = ROOT
+				change_religion = ROOT
+				change_controller = ROOT
+			}
+			add_country_modifier = {
+				name = "wesern_expedition"
+				duration = 3650 #10 years
+			}
+		}
+	}
+
+	secure_greenland = {
+		icon = mission_colonial
+		position = 2
+		required_missions = { Western_Expedition }
+
+		provinces_to_highlight = {
+			province_id = 1104
+		}
+
+		trigger = {
+			1104 = {
+			owned_by = ROOT
+			is_city = yes
+			}
+		}
+		effect = {
+			1104 = {
+				add_base_tax = 2
+				add_base_manpower = 1
+				add_base_production = 1
+			}
+		}
+	}
+
+	}
+#######################################

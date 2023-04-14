@@ -1,0 +1,251 @@
+sea_province = { 9 104 109 }
+sea_province = { 48 73 197 }
+sea_province = { 0 204 204 }
+sea_province = { 0 179 179 }
+sea_province = { 0 153 153 }
+sea_province = { 0 128 128 }
+sea_province = { 0 102 102 }
+sea_province = { 0 77 77 }
+sea_province = { 13 255 255 }
+sea_province = { 38 255 255 }
+sea_province = { 89 255 255 }
+sea_province = { 64 255 255 }
+sea_province = { 115 255 255 }
+sea_province = { 140 255 255 }
+sea_province = { 0 242 242 }
+sea_province = { 0 217 217 }
+sea_province = { 0 166 166 }
+sea_province = { 0 140 140 }
+sea_province = { 0 115 115 }
+sea_province = { 7 247 247 }
+sea_province = { 7 222 222 }
+sea_province = { 6 196 196 }
+sea_province = { 5 171 171 }
+sea_province = { 4 145 145 }
+sea_province = { 3 94 94 }
+sea_province = { 57 247 247 }
+sea_province = { 82 247 247 }
+sea_province = { 131 247 247 }
+sea_province = { 0 235 235 }
+sea_province = { 0 209 209 }
+sea_province = { 0 158 158 }
+sea_province = { 0 184 184 }
+sea_province = { 0 107 107 }
+sea_province = { 8 204 204 }
+sea_province = { 9 230 230 }
+sea_province = { 6 153 153 }
+sea_province = { 10 255 255 }
+sea_province = { 24 101 221 }
+sea_province = { 5 74 22 }
+
+num_sea_provinces = 39
+num_land_provinces = 975
+size = { 18 8 }
+weight = 1000
+add_moisture = 200000
+empty = { 0 0 0  }
+restrict_to_south_edge = yes
+do_not_rotate = yes
+continent = yes
+unique = 32
+
+regions = 11
+region = { 215 214 133 }
+region = { 2 10 192 }
+region = { 249 186 114 }
+region = { 160 94 144 }
+region = { 230 144 23 }
+region = { 147 166 110 }
+region = { 201 125 88 }
+region = { 89 17 24 }
+region = { 72 161 153 }
+region = { 82 34 21 }
+region = { 255 247 204 }
+
+paradise_modifier = { 215 214 133 }
+paradise_modifier = { 2 10 192 }
+paradise_modifier = { 249 186 114 }
+paradise_modifier = { 191 234 79 }
+paradise_modifier = { 160 94 144 }
+paradise_modifier = { 11 202 139 }
+paradise_modifier = { 230 11 81 }
+paradise_modifier = { 102 77 71 }
+paradise_modifier = { 230 144 23 }
+paradise_modifier = { 3 170 104 }
+paradise_modifier = { 203 255 51 }
+paradise_modifier = { 147 166 110 }
+paradise_modifier = { 201 125 88 }
+paradise_modifier = { 153 134 130 }
+paradise_modifier = { 72 161 153 }
+paradise_modifier = { 82 34 21 }
+paradise_modifier = { 255 247 204 }
+
+comet_ore_modifier = { 204 61 61 }
+comet_ore_modifier = { 102 73 30 }
+
+lake_province = { 39 82 50 }
+
+river_estuary_modifier = { 25 17 117 }
+river_estuary_modifier = { 162 143 46 }
+river_estuary_modifier = { 49 73 195 }
+river_estuary_modifier = { 204 126 84 }
+river_estuary_modifier = { 59 248 233 }
+river_estuary_modifier = { 200 1 221 }
+river_estuary_modifier = { 168 4 218 }
+river_estuary_modifier = { 254 26 14 }
+
+important_natural_harbor = { 161 163 180 }
+important_natural_harbor = { 209 171 175 }
+important_natural_harbor = { 152 194 236 }
+important_natural_harbor = { 155 13 190 }
+important_natural_harbor = { 62 39 5 }
+important_natural_harbor = { 239 197 129 }
+important_natural_harbor = { 89 57 54 }
+important_natural_harbor = { 115 100 98 }
+important_natural_harbor = { 74 10 99 }
+important_natural_harbor = { 203 191 149 }
+important_natural_harbor = { 164 44 3 }
+important_natural_harbor = { 225 255 204 }
+important_natural_harbor = { 255 234 204 }
+important_natural_harbor = { 19 178 231 }
+important_natural_harbor = { 144 224 200 }
+important_natural_harbor = { 249 222 5 }
+important_natural_harbor = { 49 65 83 }
+important_natural_harbor = { 13 174 181 }
+important_natural_harbor = { 236 125 64 }
+important_natural_harbor = { 147 60 8 }
+important_natural_harbor = { 201 102 25 }
+important_natural_harbor = { 228 40 185 }
+important_natural_harbor = { 71 166 27 }
+
+inland_center_of_trade_modifier = { 155 212 138 }
+inland_center_of_trade_modifier = { 16 83 43 }
+inland_center_of_trade_modifier = { 195 165 69 }
+inland_center_of_trade_modifier = { 81 108 119 }
+inland_center_of_trade_modifier = { 141 108 41 }
+inland_center_of_trade_modifier = { 126 1 81 }
+inland_center_of_trade_modifier = { 110 243 35 }
+inland_center_of_trade_modifier = { 174 4 57}
+inland_center_of_trade_modifier = { 8 5 227 }
+inland_center_of_trade_modifier = { 246 234 52 }
+inland_center_of_trade_modifier = { 17 56 54 }
+inland_center_of_trade_modifier = { 204 248 81 }
+inland_center_of_trade_modifier = { 29 229 236 }
+
+
+strait = {
+	from = { 164 44 3 }
+	to = { 224 174 101 }
+	through = { 24 101 221 }
+}
+
+strait = {
+	from = { 50 104 166 }
+	to = { 17 93 221 }
+	through = { 24 101 221 }
+}
+
+strait = {
+	from = { 253 187 78 }
+	to = { 17 93 221 }
+	through = { 24 101 221 }
+}
+
+strait = {
+	from = { 221 186 53 }
+	to = { 168 148 17 }
+	through = { 24 101 221 }
+}
+
+strait = {
+	from = { 72 161 153 }
+	to = { 93 73 6 }
+	through = { 5 74 22 }
+}
+
+strait = {
+	from = { 143 152 167 }
+	to = { 170 10 198 }
+	through = { 5 74 22 }
+}
+
+strait = {
+	from = { 170 10 198 }
+	to = { 135 52 53 }
+	through = { 5 74 22 }
+}
+
+strait = {
+	from = { 170 10 198 }
+	to = { 135 78 149 }
+	through = { 5 74 22 }
+}
+
+strait = {
+	from = { 170 10 198 }
+	to = { 93 73 6 }
+	through = { 5 74 22 }
+}
+
+strait = {
+	from = { 93 73 6 }
+	to = { 135 78 149 }
+	through = { 5 74 22 }
+}
+
+strait = {
+	from = { 93 73 6 }
+	to = { 135 52 53 }
+	through = { 5 74 22 }
+}
+
+strait = {
+	from = { 253 187 78 }
+	to = { 135 52 53 }
+	through = { 5 74 22 }
+}
+strait = {
+	from = { 144 224 200 }
+	to = { 179 149 143 }
+	through = { 89 255 255 }
+}
+strait = {
+	from = { 166 105 99 }
+	to = { 62 39 5 }
+	through = { 6 153 153 }
+}
+strait = {
+	from = { 191 121 115 }
+	to = { 236 130 66 }
+	through = { 6 153 153 }
+}
+strait = {
+	from = { 255 51 119 }
+	to = { 205 0 90 }
+	through = { 0 158 158 }
+}
+strait = {
+	from = { 255 153 221 }
+	to = { 189 6 144 }
+	through = { 0 209 209 }
+}
+strait = {
+	from = { 224 63 75 }
+	to = { 215 214 133 }
+	through = { 131 247 247 }
+}
+strait = {
+	from = { 128 106 102 }
+	to = { 136 232 188 }
+	through = { 115 255 255 }
+}
+strait = {
+	from = { 201 102 25 }
+	to = { 254 37 73 }
+	through = { 9 104 109 }
+}
+strait = {
+	from = { 44 153 21 }
+	to = { 56 100 241 }
+	through = { 48 73 197 }
+}

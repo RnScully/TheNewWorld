@@ -1,0 +1,17 @@
+version="1.0"
+tags={
+	"Alternative History"
+	"Expansion"
+	"Gameplay"
+	"Fixes"
+	"Utilities"
+	"Technologies"
+	"New Nations"
+	"National Ideas"
+	"Missions And Decisions"
+	"Map"
+}
+picture="thumbnail.png"
+name="Random New World Improvements [Updated]"
+supported_version="1.34.*"
+remote_file_id="2786231870"
