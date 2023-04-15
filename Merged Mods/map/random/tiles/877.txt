@@ -1,0 +1,93 @@
+sea_province = { 0 179 179 }
+sea_province = { 0 255 255 }
+sea_province = { 0 128 128 }
+sea_province = { 0 179 164 }
+sea_province = { 0 255 234 }
+sea_province = { 0 255 212 }
+sea_province = { 0 179 149 }
+sea_province = { 0 128 96 }
+sea_province = { 0 204 136 }
+sea_province = { 0 179 119 }
+sea_province = { 0 85 102 }
+sea_province = { 0 191 255 }
+sea_province = { 0 191 191 }
+sea_province = { 0 134 179 }
+sea_province = { 0 102 68 }
+sea_province = { 0 117 128 }
+sea_province = { 0 230 153 }
+sea_province = { 0 153 102 }
+sea_province = { 0 94 102 }
+sea_province = { 0 234 255 }
+sea_province = { 0 187 204 }
+sea_province = { 0 102 94 }
+sea_province = { 0 153 153 }
+sea_province = { 0 153 140 }
+sea_province = { 0 230 230 }
+sea_province = { 0 230 210 }
+sea_province = { 68 193 218 }
+sea_province = { 153 247 255 }
+
+sea_province = { 5 94 102 }
+sea_province = { 62 235 235 }
+sea_province = { 56 211 230 }
+sea_province = { 50 188 204 }
+sea_province = { 44 164 179 }
+sea_province = { 5 94 102 }
+sea_province = { 37 141 153 }
+sea_province = { 31 118 128 }
+sea_province = { 5 94 102 }
+sea_province = { 0 102 85 }
+sea_province = { 0 251 255 }
+sea_province = { 0 150 153 }
+
+
+
+lake_province = { 0 176 179 }
+lake_province = { 0 226 230 }
+lake_province = { 0 201 204 }
+lake_province = { 0 125 128 }
+lake_province = { 50 188 204 }
+
+river_estuary_modifier = { 255 25 178 }
+river_estuary_modifier = { 179 17 138 }
+
+important_natural_harbor = { 230 22 230 }
+important_natural_harbor = { 128 12 89 }
+important_natural_harbor = { 12 0 140 }
+important_natural_harbor = { 82 0 140 }
+important_natural_harbor = { 230 230 45 }
+important_natural_harbor = { 20 102 47 }
+important_natural_harbor = { 127 204 20 }
+important_natural_harbor = { 15 153 84 }
+important_natural_harbor = { 102 20 34 }
+important_natural_harbor = { 179 44 17 }
+important_natural_harbor = { 71 36 179 }
+important_natural_harbor = { 95 41 204 }
+
+inland_center_of_trade_modifier = { 99 128 12 }
+inland_center_of_trade_modifier = { 25 128 25 }
+inland_center_of_trade_modifier = { 153 31 51 }
+inland_center_of_trade_modifier = { 20 102 40 }
+inland_center_of_trade_modifier = { 94 65 189 }
+inland_center_of_trade_modifier = { 80 160 199 }
+inland_center_of_trade_modifier = { 85 25 128 }
+
+num_sea_provinces = 39
+num_land_provinces = 682
+size = { 12 6 }
+
+continent = yes
+
+weight = 100
+
+regions = 4
+region = { 235 41 23 }
+region = { 187 51 255 }
+region = { 102 88 20 }
+region = { 230 22 161 }
+
+
+empty = { 0 0 0 }
+
+
+

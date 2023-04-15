@@ -1,0 +1,47 @@
+colonial_placeholder_19 = {
+	color = { 56 100 241 }
+}
+
+colonial_placeholder_20 = {
+	color = { 8 177 179 }
+}
+
+colonial_placeholder_21 = {
+	color = { 225 225 225 }
+}
+
+colonial_placeholder_22 = {
+	color = { 20 50 210 }
+}
+
+colonial_placeholder_23 = {
+	color = { 69 157 208 }
+}
+
+colonial_placeholder_24 = {
+	color = { 33 87 161 }
+}
+
+colonial_placeholder_25 = {
+	color = { 200 117 43 }
+}
+
+colonial_placeholder_26 = {
+	color = { 231 181 12 }
+}
+
+colonial_placeholder_27 = {
+	color = { 78 202 78 }
+}
+
+colonial_placeholder_28 = {
+	color = { 227 40 40 }
+}
+
+colonial_placeholder_29 = {
+	color = { 124 140 162 }
+}
+
+colonial_placeholder_30 = {
+	color = { 101 102 163 }
+}

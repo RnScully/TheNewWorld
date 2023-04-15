@@ -1,0 +1,39 @@
+colonial_placeholder_51 = {
+	color = { 92 44 31 }
+}
+
+colonial_placeholder_52 = {
+	color = { 37 50 58 }
+}
+
+colonial_placeholder_53 = {
+	color = { 132 227 253 }
+}
+
+colonial_placeholder_54 = {
+	color = { 18 201 247 }
+}
+
+colonial_placeholder_55 = {
+	color = { 102 225 80 }
+}
+
+colonial_placeholder_56 = {
+	color = { 48 213 138 }
+}
+
+colonial_placeholder_57 = {
+	color = { 15 24 99 }
+}
+
+colonial_placeholder_58 = {
+	color = { 243 211 114 }
+}
+
+colonial_placeholder_59 = {
+	color = { 66 110 251 }
+}
+
+colonial_placeholder_60 = {
+	color = { 18 187 189 }
+}

@@ -17,10 +17,14 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2786231870
 Change the weights so that the rnw generation is going to spawn at least 600 provinces. 
 
 
+Completed:
+Merged mods. 
+
 To do: 
-Merge
+Fix name of RNW-True-Livonia
 Adjust Weights
-Explore the map generation options 
+Explore the map generation options
+Add monuments?!
 
 Notes: 
 

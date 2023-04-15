@@ -1,0 +1,38 @@
+sea_province = { 197 237 250 }
+sea_province = { 0 255 255 }
+sea_province = { 0 255 212 }
+sea_province = { 0 255 180 }
+sea_province = { 0 180 140 }
+sea_province = { 0 255 170 }
+sea_province = { 0 225 225 }
+sea_province = { 10 153 225 }
+sea_province = { 10 122 225 }
+sea_province = { 0 150 140 }
+sea_province = { 173 223 246 }
+sea_province = { 173 193 246 }
+sea_province = { 173 203 246 }
+sea_province = { 173 183 246 }
+sea_province = { 173 213 246 }
+
+river_estuary_modifier = { 69 119 160 }
+river_estuary_modifier = { 24 114 134 }
+river_estuary_modifier = { 208 99 66 }
+
+important_natural_harbor = { 255 0 0 }
+important_natural_harbor = { 31 97 153 }
+
+inland_center_of_trade_modifier = { 31 56 134 }
+inland_center_of_trade_modifier = { 85 104 31 }
+
+num_sea_provinces = 14
+num_land_provinces = 147
+size = { 2 2 }
+
+continent = no
+
+weight = 100
+
+empty = { 181 232 241}
+
+regions = 1
+region = { 219 58 58 }
