@@ -838,7 +838,7 @@ country_event = {				#Gives player the option to remove tags with white borders
 					add_base_manpower = -10
 					add_base_production = -10
 					add_base_tax = -10
-					cede_province = XXX #Cedes it to an invalid tag, making it empty.
+					#cede_province = XXX #Cedes it to an invalid tag, making it empty.
 				}
 			}
 		}
@@ -932,7 +932,7 @@ country_event = {				#Gives player the option to remove tags with white borders
 					add_base_manpower = -100
 					add_base_production = -100
 					add_base_tax = -100
-					cede_province = XXX #Cedes it to an invalid tag, making it empty.
+					#cede_province = XXX #Cedes it to an invalid tag, making it empty.
 				}
 			}
 		}
