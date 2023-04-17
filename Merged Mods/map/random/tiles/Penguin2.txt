@@ -48,7 +48,7 @@ inland_center_of_trade_modifier =  { 132 90 255 }
 inland_center_of_trade_modifier = { 135 190 90 }
 inland_center_of_trade_modifier = { 132 190 90 }
 
-num_sea_provinces = 30
+num_sea_provinces = 29
 
 num_land_provinces = 126
 
