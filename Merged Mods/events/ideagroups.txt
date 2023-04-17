@@ -7961,7 +7961,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "ideagroups.1908.a"
+		name = ideagroups.1908.a
 		# Christian
 		add_estate_dhimmi_loyalty_effect = yes
 		if = {
