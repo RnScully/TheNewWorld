@@ -1,3 +1,6 @@
+# this file does what?! 
+# ideas_updater seems to replace a group of ideas with just one idea, 
+
 namespace = idea_updater
 
 country_event = {
@@ -185,7 +188,6 @@ country_event = {
 				remove_idea = dynamic_court
 				remove_idea = resilient_state
 				remove_idea = optimism
-				remove_idea = formalized_officer_corps
 				add_idea = patron_of_art
 			}
 		}
@@ -227,14 +229,6 @@ country_event = {
 			}
 			ROOT = {
 				add_idea = optimism
-			}
-		}
-		if = {
-			limit = {
-				FROM = { has_idea = formalized_officer_corps }
-			}
-			ROOT = {
-				add_idea = formalized_officer_corps
 			}
 		}
 		
@@ -343,7 +337,6 @@ country_event = {
 				remove_idea = additional_loyalist_recruitment
 				remove_idea = claim_fabrication
 				remove_idea = privateers
-				remove_idea = audit_checks
 				add_idea = efficient_spies
 			}
 		}
@@ -390,15 +383,6 @@ country_event = {
 			}
 			ROOT = {
 				add_idea = privateers
-			}
-		}
-
-		if = {
-			limit = {
-				FROM = { has_idea = audit_checks }
-			}
-			ROOT = {
-				add_idea = audit_checks
 			}
 		}
 		
@@ -1064,7 +1048,6 @@ country_event = {
 				remove_idea = the_young_can_serve
 				remove_idea = enforced_service
 				remove_idea = the_old_and_infirm
-				remove_idea = mercenary_contracts
 				remove_idea = garrison_conscription
 				remove_idea = expanded_supply_trains
 				add_idea = mass_army
@@ -1094,15 +1077,6 @@ country_event = {
 			}
 			ROOT = {
 				add_idea = the_old_and_infirm
-			}
-		}
-
-		if = {
-			limit = {
-				FROM = { has_idea = mercenary_contracts }
-			}
-			ROOT = {
-				add_idea = mercenary_contracts
 			}
 		}
 
@@ -1143,9 +1117,7 @@ country_event = {
 				add_idea_group = expansion_ideas
 				remove_idea = additional_merchants
 				remove_idea = faster_colonists
-				remove_idea = organised_recruiting
 				remove_idea = additional_diplomats
-				remove_idea = improved_shipyards
 				remove_idea = competetive_merchants
 				add_idea = additional_colonists
 			}
@@ -1170,28 +1142,10 @@ country_event = {
 
 		if = {
 			limit = {
-				FROM = { has_idea = organised_recruiting }
-			}
-			ROOT = {
-				add_idea = organised_recruiting
-			}
-		}
-
-		if = {
-			limit = {
 				FROM = { has_idea = additional_diplomats }
 			}
 			ROOT = {
 				add_idea = additional_diplomats
-			}
-		}
-
-		if = {
-			limit = {
-				FROM = { has_idea = improved_shipyards }
-			}
-			ROOT = {
-				add_idea = improved_shipyards
 			}
 		}
 
