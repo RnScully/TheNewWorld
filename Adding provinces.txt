@@ -1,0 +1,30 @@
+Adding provinces
+
+Vanilla default.map
+
+4942 provinces
+
+Sea starts list
+
+RNW Sea Provinces
+
+RNW Land Provinces
+3190-3999
+
+Mod: 
+RNW Provinces
+add 2001
+ranges: 
+4942-6943
+
+
+RNW Wasteland Provinces
+add 50
+range 6994-7044
+lakes
+
+RNW Lakes
+
+add 50
+ranges:
+6944-6993
