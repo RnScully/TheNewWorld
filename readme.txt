@@ -24,7 +24,14 @@ To do:
 Fix name of RNW-True-Livonia
 Adjust Weights
 Explore the map generation options
-Add monuments?!
+country placement
+simulate some DHEs in the random world
+religion even?
+trade goods
+also more variety to the scenario generation
+add some starting diplomacy; alliances, rivalries
+vassals and so forth
+perhaps even war
 
 Notes: 
 
